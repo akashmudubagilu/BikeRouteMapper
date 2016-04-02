@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,85 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MTC-Ns-srR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="450"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="udl-DO-65Q"/>
+                                    <outletCollection property="gestureRecognizers" destination="ZVy-aJ-aK6" appends="YES" id="7Na-r1-Icj"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dsj-GN-pNq">
+                                <rect key="frame" x="534" y="384" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="IIr-rx-Nwc"/>
+                                    <constraint firstAttribute="height" constant="50" id="NO4-mt-Epr"/>
+                                </constraints>
+                                <state key="normal" image="currentLocation"/>
+                                <connections>
+                                    <action selector="takeMeToMyCurrentLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bbe-jy-hce"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9i-Ig-ddx">
+                                <rect key="frame" x="0.0" y="447" width="600" height="153"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M5K-k6-CeT">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="153"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="M5K-k6-CeT" firstAttribute="top" secondItem="h9i-Ig-ddx" secondAttribute="top" id="1fC-7K-XPT"/>
+                                    <constraint firstAttribute="trailing" secondItem="M5K-k6-CeT" secondAttribute="trailing" id="nX8-Xp-XeE"/>
+                                    <constraint firstItem="M5K-k6-CeT" firstAttribute="leading" secondItem="h9i-Ig-ddx" secondAttribute="leading" id="uDh-au-mJY"/>
+                                    <constraint firstAttribute="bottom" secondItem="M5K-k6-CeT" secondAttribute="bottom" id="wig-x7-7aa"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBZ-kg-jOv">
+                                <rect key="frame" x="0.0" y="383" width="64" height="64"/>
+                                <state key="normal" image="ResetRoute">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YSF-gN-xOg"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h9i-Ig-ddx" firstAttribute="top" secondItem="cBZ-kg-jOv" secondAttribute="bottom" id="0Em-CL-GwM"/>
+                            <constraint firstItem="Dsj-GN-pNq" firstAttribute="bottom" secondItem="MTC-Ns-srR" secondAttribute="bottom" constant="-16" id="82e-lD-hzr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MTC-Ns-srR" secondAttribute="trailing" constant="-20" id="9c2-I7-Hmg"/>
+                            <constraint firstItem="h9i-Ig-ddx" firstAttribute="top" secondItem="MTC-Ns-srR" secondAttribute="bottom" constant="-3" id="EpD-Ad-CWn"/>
+                            <constraint firstItem="cBZ-kg-jOv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vcf-0a-gzs"/>
+                            <constraint firstItem="MTC-Ns-srR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="eEU-G9-U6n"/>
+                            <constraint firstAttribute="trailing" secondItem="Dsj-GN-pNq" secondAttribute="trailing" constant="16" id="fdz-Mk-IiW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="h9i-Ig-ddx" secondAttribute="bottom" id="oH3-yu-l3k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h9i-Ig-ddx" secondAttribute="trailing" constant="-20" id="pSX-tD-JFN"/>
+                            <constraint firstItem="h9i-Ig-ddx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="pfB-HU-s3l"/>
+                            <constraint firstItem="MTC-Ns-srR" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="rrc-TC-ZmS"/>
+                            <constraint firstItem="MTC-Ns-srR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="v9i-GZ-y1E"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="elevationChartImageView" destination="M5K-k6-CeT" id="G1W-yt-4RL"/>
+                        <outlet property="mapView" destination="MTC-Ns-srR" id="FZL-s8-wZY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="ZVy-aJ-aK6">
+                    <connections>
+                        <action selector="longTapGestureRecognizer:" destination="BYZ-38-t0r" id="f65-jc-dgW"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="255" y="209"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ResetRoute" width="64" height="64"/>
+        <image name="currentLocation" width="50" height="50"/>
+    </resources>
 </document>

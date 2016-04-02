@@ -1,0 +1,19 @@
+//
+//  PrefixHeader.pch
+//  Elevation
+//
+//  Created by Akash Mudubagilu on 4/2/16.
+//  Copyright © 2016 Akash Mudubagilu. All rights reserved.
+//
+
+#ifndef Elevation-Prefix_pch
+#define Elevation-Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "Constants.h"
+#import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import <UIKit/UIKit.h>
+
+#endif /* PrefixHeader_pch */
